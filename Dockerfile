@@ -23,6 +23,7 @@ COPY templates/runner.py /agent/runner.py
 
 # COPY datasets /datasets
 COPY testlibs/testlib_en.py /testlibs/
+COPY testlibs/sql_testlib_stable.py /testlibs/
 
 # Entrypoint
 WORKDIR /agent
