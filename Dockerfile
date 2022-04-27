@@ -18,6 +18,8 @@ RUN pip install --no-cache-dir --upgrade pip \
     rm requirements.txt && \
     chmod -R go-w /usr/local/lib/
 
+RUN pip install psycopg2==2.9.3
+
 # Добавление раннера для запуска заданий на старой либе (нужен ли?)
 COPY templates/runner.py /agent/runner.py
 
