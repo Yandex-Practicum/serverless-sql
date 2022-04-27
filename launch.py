@@ -115,7 +115,6 @@ def setup_routes(app: web.Application) -> None:
 
 
 # Fix file permission
-os.system("chmod a=rx /sqldbs && chmod a=r /sqldbs/*")
 os.system("chmod a=rx /testlibs && chmod a=rx /testlibs/*")
 
 app = web.Application()
