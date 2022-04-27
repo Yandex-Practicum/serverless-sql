@@ -22,7 +22,7 @@ RUN pip install --no-cache-dir --upgrade pip \
 COPY templates/runner.py /agent/runner.py
 
 # COPY datasets /datasets
-COPY testlibs/testlib_en.py /testlibs/assert.py
+COPY testlibs/testlib_en.py /testlibs/
 
 # Entrypoint
 WORKDIR /agent
