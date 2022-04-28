@@ -34,7 +34,7 @@ async def run(request: web.Request) -> web.Response:
                         (
                             f"cd {manager.directory} "
                             f"&& chown -R student {manager.directory} "
-                            f"&& su - student -c cd {manager.directory} && \"{body['command']}\""
+                            f"&& su - student -c echo pwd && \"{body['command']}\""
                         ),
                         capture_output=True,
                         timeout=TIMEOUT,
