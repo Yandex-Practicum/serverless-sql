@@ -26,6 +26,8 @@ COPY testlibs/testlib_en.py /testlibs/
 COPY testlibs/sql_testlib_stable.py /testlibs/
 COPY serverless-secrets/postgres_root.crt /secrets/.postgresql/root.crt
 
+ENV PGSSLROOTCERT="/secrets/.postgresql/root.crt"
+
 # Entrypoint
 WORKDIR /agent
 COPY launch.py /agent/launch.py
