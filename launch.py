@@ -116,6 +116,7 @@ def setup_routes(app: web.Application) -> None:
 
 # Fix file permission
 os.system("chmod a=rx /testlibs && chmod a=rx /testlibs/*")
+os.system("chmod a=rx /secrets && chmod a=rx /secrets/.postgresql && chmod a=rx /secrets/.postgresql/root.crt")
 
 app = web.Application()
 run_lock = asyncio.Lock()

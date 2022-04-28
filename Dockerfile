@@ -1,6 +1,5 @@
 FROM python:3.9-slim
 
-ENV PGSSLROOTCERT="/secrets/.postgresql/root.crt"
 
 # Структура папок
 RUN useradd -rm -d /home/student -s /bin/bash -u 1001 student
@@ -28,6 +27,7 @@ COPY testlibs/testlib_en.py /testlibs/
 COPY testlibs/sql_testlib_stable.py /testlibs/
 COPY serverless-secrets/postgres_root.crt /secrets/.postgresql/root.crt
 
+ENV PGSSLROOTCERT="/secrets/.postgresql/root.crt"
 
 # Entrypoint
 WORKDIR /agent
