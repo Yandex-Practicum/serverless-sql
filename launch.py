@@ -11,7 +11,7 @@ from serverhub_agent.utils.filesystem import TempFileManager
 
 AGENT_PORT = os.getenv("PORT")
 TIMEOUT = int(os.getenv("TIMEOUT"))
-TESTS_PATH = "/home/student"
+TESTS_PATH = "/home/student/tests"
 RESPONSE_LIMIT = 3_500_000
 
 
