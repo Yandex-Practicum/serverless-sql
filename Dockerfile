@@ -24,7 +24,7 @@ COPY templates/runner.py /agent/runner.py
 # COPY datasets /datasets
 COPY testlibs/testlib_en.py /testlibs/
 COPY testlibs/sql_testlib_stable.py /testlibs/
-COPY serverless-secrets/postgres_root.crt /home/student/.postgresql/root.crt
+COPY serverless-secrets/postgres_root.crt /secrets/.postgresql/root.crt
 
 # Entrypoint
 WORKDIR /agent
