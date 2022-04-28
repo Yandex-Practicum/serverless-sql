@@ -42,17 +42,6 @@ async def run(request: web.Request) -> web.Response:
                     stdout = proc.stdout
                     stderr = proc.stderr
                     return_code = proc.returncode
-
-                    logging.info("Command: %s", body['command'])
-                    logging.info("FILES %s", files)
-
-                    with open(os.path.join(TESTS_PATH, "author_code.py")) as f:
-                        result = f.read()
-                        logging.info("author_code.py %s", result)
-                    with open(os.path.join(TESTS_PATH, "user_code.py")) as f:
-                        result = f.read()
-                        logging.info("user_code.py %s", result)
-
                 except subprocess.TimeoutExpired:
                     timeout = True
 

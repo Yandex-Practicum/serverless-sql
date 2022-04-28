@@ -59,6 +59,6 @@ urllib3==1.26.8
 greenlet==1.1.2
 SQLAlchemy==1.4.31
 psycopg2-binary==2.9.3
-pglast==3.9
+pglast==1.12
 
 # Служебные для работы serverless контейнера
