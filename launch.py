@@ -32,8 +32,9 @@ async def run(request: web.Request) -> web.Response:
                 try:
                     proc = subprocess.run(
                         (
-                            f"cd {manager.directory} && chown -R student {manager.directory} "
-                            f"&& su - student -c \"{body['command']}\""
+                            f"cd {manager.directory} "
+                            f"&& chown -R student {manager.directory} "
+                            f"&& su - student -c cd {manager.directory} && \"{body['command']}\""
                         ),
                         capture_output=True,
                         timeout=TIMEOUT,
@@ -116,7 +117,6 @@ def setup_routes(app: web.Application) -> None:
 
 # Fix file permission
 os.system("chmod a=rx /testlibs && chmod a=rx /testlibs/*")
-os.system("chmod a=rx /secrets && chmod a=rx /secrets/.postgresql && chmod a=rx /secrets/.postgresql/root.crt")
 
 app = web.Application()
 run_lock = asyncio.Lock()
