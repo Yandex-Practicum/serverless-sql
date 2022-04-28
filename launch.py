@@ -32,9 +32,8 @@ async def run(request: web.Request) -> web.Response:
                 try:
                     proc = subprocess.run(
                         (
-                            f"cd {manager.directory} "
-                            f"&& chown -R student {manager.directory} "
-                            f"&& su - student -c echo pwd && \"{body['command']}\""
+                            f"chown -R student {manager.directory} "
+                            f"&& su - student -c \"cd {manager.directory} && {body['command']}\""
                         ),
                         capture_output=True,
                         timeout=TIMEOUT,
