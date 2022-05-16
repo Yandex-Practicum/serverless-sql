@@ -11,7 +11,7 @@ from serverhub_agent.utils.filesystem import TempFileManager
 
 AGENT_PORT = os.getenv("PORT")
 TIMEOUT = int(os.getenv("TIMEOUT"))
-TESTS_PATH = "/home/student"
+TESTS_PATH = "/home/student/tests"
 RESPONSE_LIMIT = 3_500_000
 
 
@@ -32,8 +32,8 @@ async def run(request: web.Request) -> web.Response:
                 try:
                     proc = subprocess.run(
                         (
-                            f"cd {manager.directory} && chown -R student {manager.directory} "
-                            f"&& su - student -c \"{body['command']}\""
+                            f"chown -R student {manager.directory} "
+                            f"&& su - student -c \"cd {manager.directory} && {body['command']}\""
                         ),
                         capture_output=True,
                         timeout=TIMEOUT,
@@ -115,7 +115,6 @@ def setup_routes(app: web.Application) -> None:
 
 
 # Fix file permission
-os.system("chmod a=rx /sqldbs && chmod a=r /sqldbs/*")
 os.system("chmod a=rx /testlibs && chmod a=rx /testlibs/*")
 
 app = web.Application()
